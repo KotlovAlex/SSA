@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="eel.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="loaderArea">
+        <div class="loader"></div>
+    </div>
+    <div class="main">
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="info">
+            <div class="row">
+                <div class="col">Max</div>
+                <div class="col max"></div>
+            </div>
+            <div class="row">
+                <div class="col">Min</div>
+                <div class="col min"></div>
+            </div>
+            <div class="row">
+                <div class="col">Avg</div>
+                <div class="col avg"></div>
+            </div>
+        </div>
+    </div>
+    <div class="undermain">
+        <select id="compsel" class="compsel">
+            <option value="SBER">"Сбербанк России", акция обыкновенная (SBER)</option>
+            <option value="TCSG">TCS Group Holding PLC (TCSG)</option>
+            <option value="VTBR">Банк ВТБ, акция обыкновенная (VTBR)</option>
+        </select>
+    </div>
+    <script>
+        async function b () {
+            await eel.a('Hi butch')
+        }
+        b()
+    </script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/functions.js"></script>  
+</body>
+</html>
