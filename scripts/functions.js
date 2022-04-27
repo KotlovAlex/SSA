@@ -169,8 +169,8 @@ function svd (arr, len) {
     let temp = math.eigs(multiMatr(X,XT))
     let values = temp.values.reverse()
     let vectors =  temp.vectors.reverse()
-    let V = new Array(50)
-    let res = new Array(50)
+    let V = new Array(len)
+    let res = new Array(len)
     for (let i = 0; i<len;i++){
         V[i]=scDivMatr(multiMatr(XT,vectors[i]),math.sqrt(values[i]))
     }
@@ -179,6 +179,24 @@ function svd (arr, len) {
         res[i] = multiVec((math.multiply(Math.sqrt(values[i]),vectors[i])),VT[i])
     }
     return res
+}
+
+//Eigentriple grouping
+function eigsGrouping (matr,m) {
+    let len = matr.length/m;
+    let temp = matr.slice()
+    let temparr = []
+    let res = [];
+    for (let i = 0; i<m;i++){
+        temparr = temp.slice(i,len+i)
+        res[i]=math.add(...temparr)
+    }
+    return res
+}
+
+//Diagonal averaging
+function diagAvg (matr) {
+
 }
 
 compsel.onchange = () => {
