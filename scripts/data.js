@@ -1,4 +1,4 @@
-// Основные переменные
+// Variables
 let data
 let temp
 let indexs = []
@@ -8,14 +8,14 @@ let comps = []
 let compnames = []
 
 
-// Вспомогательные переменные
+// Help Variables
 let end = (new Date()).toISOString().slice(0,10)
 let start = end.split('')
 start[3] = +start[3]-1
 start = start.join('')
-
 let comp = 'SBER'
 
+// Remove Preloader
 function rPreloader (){
     $preloader = $('.loaderArea'),
     $loader = $preloader.find('.loader');
@@ -23,6 +23,7 @@ function rPreloader (){
     $preloader.delay(350).fadeOut('slow');
 }
 
+// Open Preloader
 function cPreloader (){
     $preloader = $('.loaderArea'),
     $loader = $preloader.find('.loader');
@@ -30,8 +31,7 @@ function cPreloader (){
     $preloader.fadeIn('fast');
 }
 
-
-
+// Data request
 async function fetchRes() {
     cPreloader()
     indexs = []
@@ -50,25 +50,3 @@ async function fetchRes() {
 }
 
 fetchRes()
-
-// let myFetch = fetch('http://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/SBER/candles.csv?from=2021-04-08&till=2022-04-08&interval=24&start=0');
-
-// myFetch.then(function(response) {
-//     response.text().then(function(text) {
-//     data = text;
-//     console.log(data);
-//     data = data.split('\n')
-//     data.shift()
-//     data.shift()
-//     data.shift()
-//     data.pop()
-//     data.pop()
-//     data.pop()
-//     for (let el in data){
-//         indexs.push(+el + 1)
-//         data[el] = data[el].split(';');
-//         dates.push(data[el][7].split('').splice(0,10).join(''))
-//         opens.push(data[el][0])
-//     }
-//     });
-// })
