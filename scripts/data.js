@@ -30,28 +30,23 @@ function cPreloader (){
     $preloader.fadeIn('fast');
 }
 
+
+
 async function fetchRes() {
     cPreloader()
     indexs = []
     dates = []
     opens = []
-    let response = await fetch(`http://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/${comp}/candles.csv?from=${start}&till=${end}&interval=24&start=0`)
-    data = await response.text()
-    data = data.split('\n')
-    data.shift()
-    data.shift()
-    data.shift()
-    data.pop()
-    data.pop()
-    data.pop()
-    for (let el in data){
+    let response = await fetch(`http://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/${comp}/candles.json?from=${start}&till=${end}&interval=24&start=0`)
+    data = await response.json()
+    dataset = data.candles.data
+    for (let el in dataset){
         indexs.push(+el + 1)
-        data[el] = data[el].split(';');
-        dates.push(data[el][7].split('').splice(0,10).join(''))
-        opens.push(data[el][0])
+        dates.push(dataset[el][7].split('').splice(0,10).join(''))
+        opens.push(dataset[el][0])
     }
-    await renderchart()
-    await rPreloader()
+    renderchart()
+    rPreloader()
 }
 
 fetchRes()
